@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electrical Core SNC | Impianti elettrici, antifurti e videosorveglianza a Castelnuovo Don Bosco (AT)</title>
-<meta name="description" content="Electrical Core SNC: impianti elettrici civili e industriali, antifurti e videosorveglianza, videocitofonia, automazioni cancelli, antenne e reti dati. Zona Castelnuovo Don Bosco, Asti, Piemonte. Preventivi gratuiti.">
+<title>Electrical Core SNC | Impianti elettrici, sicurezza e automazioni ad Asti, Torino e Cuneo</title>
+<meta name="description" content="Electrical Core SNC: impianti elettrici civili e industriali, antifurti e videosorveglianza, videocitofonia, automazioni cancelli, antenne e reti dati. Sede a Castelnuovo Don Bosco, operativi nelle province di Asti, Torino e Cuneo. Preventivi gratuiti.">
 <meta name="theme-color" content="#D9382B">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="canonical" href="https://www.electricalcoresnc.it/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Electrical Core SNC | Ti connettiamo al futuro">
-<meta property="og:description" content="Impianti elettrici civili e industriali, antifurti, videosorveglianza, videocitofonia, automazioni cancelli, antenne e reti dati. Castelnuovo Don Bosco (AT).">
+<meta property="og:description" content="Impianti elettrici civili e industriali, antifurti, videosorveglianza, videocitofonia, automazioni cancelli e reti dati. Sede a Castelnuovo Don Bosco, attivi ad Asti, Torino e Cuneo.">
 <meta property="og:locale" content="it_IT">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
     "addressRegion": "AT",
     "addressCountry": "IT"
   },
-  "areaServed": "Piemonte",
+  "areaServed": ["Asti", "Torino", "Cuneo", "Piemonte"],
   "url": "https://www.electricalcoresnc.it/"
 }
 </script>
@@ -61,9 +61,66 @@
     </button>
 
     <nav class="primary-nav" id="primaryNav">
-      <a href="#servizi">Servizi</a>
+      <div class="nav-dropdown" id="servicesDropdown">
+        <button class="nav-dropdown-toggle" id="servicesToggle" aria-expanded="false" aria-haspopup="true" aria-controls="servicesMenu">
+          <span>Servizi</span>
+          <svg class="dropdown-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="servicesMenu" role="menu" aria-label="Elenco servizi">
+          <a href="/servizi/impianti-elettrici.html" class="dropdown-item" role="menuitem">
+            <span class="dropdown-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg>
+            </span>
+            <span class="dropdown-item-info">
+              <span class="dropdown-item-title">Impianti elettrici</span>
+              <span class="dropdown-item-desc">Civili, industriali e quadri a norma</span>
+            </span>
+          </a>
+          <a href="/servizi/antifurti-videosorveglianza.html" class="dropdown-item" role="menuitem">
+            <span class="dropdown-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3zm0 9.5 3-1.7-3-1.7-3 1.7 3 1.7z"/></svg>
+            </span>
+            <span class="dropdown-item-info">
+              <span class="dropdown-item-title">Antifurti e videosorveglianza</span>
+              <span class="dropdown-item-desc">Allarmi intelligenti e telecamere HD</span>
+            </span>
+          </a>
+          <a href="/servizi/videocitofonia.html" class="dropdown-item" role="menuitem">
+            <span class="dropdown-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v13H7l-3 3V4zm3 4h10v2H7V8zm0 4h7v2H7v-2z"/></svg>
+            </span>
+            <span class="dropdown-item-info">
+              <span class="dropdown-item-title">Videocitofonia</span>
+              <span class="dropdown-item-desc">Sistemi 2 fili, IP e controllo smartphone</span>
+            </span>
+          </a>
+          <a href="/servizi/automazioni-cancelli.html" class="dropdown-item" role="menuitem">
+            <span class="dropdown-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 11h4l3-7h4l3 7h4v2H3v-2zm2 4h14l-1.5 6h-11L5 15z"/></svg>
+            </span>
+            <span class="dropdown-item-info">
+              <span class="dropdown-item-title">Automazioni cancelli</span>
+              <span class="dropdown-item-desc">Cancelli scorrevoli, a battente e barriere</span>
+            </span>
+          </a>
+          <a href="/servizi/antenne-reti-dati.html" class="dropdown-item" role="menuitem">
+            <span class="dropdown-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2v20m-6-4 6-16 6 16M4 22h16"/></svg>
+            </span>
+            <span class="dropdown-item-info">
+              <span class="dropdown-item-title">Antenne e reti dati</span>
+              <span class="dropdown-item-desc">TV/SAT, fibra ottica e cablaggi rack</span>
+            </span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#servizi" class="dropdown-all-link" role="menuitem">
+            <span>Panoramica tutti i servizi</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
       <a href="#chi-siamo">Chi siamo</a>
-      <a href="#zona">Zona operativa</a>
+      <a href="#dove-siamo">Dove siamo</a>
       <a href="#contatti">Contatti</a>
       <a class="btn btn-primary nav-cta" href="tel:+393384444117">Chiama ora</a>
     </nav>
@@ -77,7 +134,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Impianti elettrici civili e industriali</p>
         <h1>Sicurezza, tecnologia e affidabilità per la tua casa e la tua impresa</h1>
-        <p class="hero-lead">Electrical Core SNC progetta e installa impianti elettrici, sistemi antifurto, videosorveglianza, videocitofonia, automazioni per cancelli e reti dati a Castelnuovo Don Bosco e in tutta la provincia di Asti.</p>
+        <p class="hero-lead">Electrical Core SNC progetta e installa impianti elettrici, sistemi antifurto, videosorveglianza, videocitofonia, automazioni per cancelli e reti dati con sede a Castelnuovo Don Bosco e operatività nelle province di Asti, Torino e Cuneo.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="#contatti">Richiedi un preventivo gratuito</a>
           <a class="btn btn-ghost btn-lg" href="tel:+393384444117">
@@ -88,7 +145,7 @@
         <ul class="hero-badges">
           <li>Preventivi gratuiti</li>
           <li>Interventi civili e industriali</li>
-          <li>Assistenza rapida in zona</li>
+          <li>Asti, Torino e Cuneo</li>
         </ul>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -104,44 +161,134 @@
       <p class="section-lead center">Un unico interlocutore per impianti elettrici, sicurezza e connettività: dal progetto alla manutenzione.</p>
 
       <div class="service-grid">
-        <article class="service-card">
-          <span class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg>
-          </span>
-          <h3>Impianti elettrici civili e industriali</h3>
-          <p>Progettazione, realizzazione, ampliamento e messa a norma di impianti elettrici per abitazioni, uffici e realtà produttive.</p>
+        <article class="service-card" id="service-impianti">
+          <div class="service-media">
+            <a href="/servizi/impianti-elettrici.html" aria-label="Approfondisci Impianti elettrici civili e industriali">
+              <img
+                src="/assets/services/impianti-elettrici.png"
+                alt="Quadro elettrico civile e industriale con interruttori magnetotermici e cablaggio a norma"
+                class="service-img"
+                loading="lazy"
+                width="400"
+                height="250"
+              >
+            </a>
+            <span class="service-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg>
+            </span>
+          </div>
+          <div class="service-content">
+            <h3><a href="/servizi/impianti-elettrici.html" class="service-card-anchor">Impianti elettrici civili e industriali</a></h3>
+            <p>Progettazione, realizzazione, ampliamento e messa a norma di impianti elettrici per abitazioni, uffici e realtà produttive.</p>
+            <a href="/servizi/impianti-elettrici.html" class="service-link">
+              Scopri dettagli e normative
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </article>
 
-        <article class="service-card">
-          <span class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3zm0 9.5 3-1.7-3-1.7-3 1.7 3 1.7z"/></svg>
-          </span>
-          <h3>Antifurti e videosorveglianza</h3>
-          <p>Sistemi antintrusione e impianti di videosorveglianza su misura, per proteggere casa, negozio e azienda 24 ore su 24.</p>
+        <article class="service-card" id="service-antifurti">
+          <div class="service-media">
+            <a href="/servizi/antifurti-videosorveglianza.html" aria-label="Approfondisci Antifurti e videosorveglianza">
+              <img
+                src="/assets/services/videosorveglianza.png"
+                alt="Telecamera di sicurezza e videosorveglianza professionale perimetrale esterna"
+                class="service-img"
+                loading="lazy"
+                width="400"
+                height="250"
+              >
+            </a>
+            <span class="service-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3zm0 9.5 3-1.7-3-1.7-3 1.7 3 1.7z"/></svg>
+            </span>
+          </div>
+          <div class="service-content">
+            <h3><a href="/servizi/antifurti-videosorveglianza.html" class="service-card-anchor">Antifurti e videosorveglianza</a></h3>
+            <p>Sistemi antintrusione e impianti di videosorveglianza su misura, per proteggere casa, negozio e azienda 24 ore su 24.</p>
+            <a href="/servizi/antifurti-videosorveglianza.html" class="service-link">
+              Scopri dettagli e tecnologie
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </article>
 
-        <article class="service-card">
-          <span class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16v13H7l-3 3V4zm3 4h10v2H7V8zm0 4h7v2H7v-2z"/></svg>
-          </span>
-          <h3>Videocitofonia</h3>
-          <p>Installazione e sostituzione di impianti citofonici e videocitofonici, anche connessi e gestibili da smartphone.</p>
+        <article class="service-card" id="service-videocitofonia">
+          <div class="service-media">
+            <a href="/servizi/videocitofonia.html" aria-label="Approfondisci Videocitofonia">
+              <img
+                src="/assets/services/videocitofonia.png"
+                alt="Posto videocitofonico moderno con telecamera HD, display a colori e tastierino per controllo accessi"
+                class="service-img"
+                loading="lazy"
+                width="400"
+                height="250"
+              >
+            </a>
+            <span class="service-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v13H7l-3 3V4zm3 4h10v2H7V8zm0 4h7v2H7v-2z"/></svg>
+            </span>
+          </div>
+          <div class="service-content">
+            <h3><a href="/servizi/videocitofonia.html" class="service-card-anchor">Videocitofonia</a></h3>
+            <p>Installazione e sostituzione di impianti citofonici e videocitofonici, anche connessi e gestibili comodamente da smartphone.</p>
+            <a href="/servizi/videocitofonia.html" class="service-link">
+              Scopri soluzioni smart &amp; 2 fili
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </article>
 
-        <article class="service-card">
-          <span class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 11h4l3-7h4l3 7h4v2H3v-2zm2 4h14l-1.5 6h-11L5 15z"/></svg>
-          </span>
-          <h3>Automazioni cancelli</h3>
-          <p>Motorizzazione e automazione di cancelli e barriere, con soluzioni affidabili per uso residenziale e industriale.</p>
+        <article class="service-card" id="service-automazioni">
+          <div class="service-media">
+            <a href="/servizi/automazioni-cancelli.html" aria-label="Approfondisci Automazioni cancelli">
+              <img
+                src="/assets/services/automazione-cancelli.png"
+                alt="Motore elettrico con cremagliera per automazione di cancello carraio scorrevole residenziale"
+                class="service-img"
+                loading="lazy"
+                width="400"
+                height="250"
+              >
+            </a>
+            <span class="service-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 11h4l3-7h4l3 7h4v2H3v-2zm2 4h14l-1.5 6h-11L5 15z"/></svg>
+            </span>
+          </div>
+          <div class="service-content">
+            <h3><a href="/servizi/automazioni-cancelli.html" class="service-card-anchor">Automazioni cancelli</a></h3>
+            <p>Motorizzazione e automazione di cancelli e barriere, con soluzioni affidabili e durature per uso residenziale e industriale.</p>
+            <a href="/servizi/automazioni-cancelli.html" class="service-link">
+              Scopri motori e sicurezza EN 12453
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </article>
 
-        <article class="service-card">
-          <span class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2v20m-6-4 6-16 6 16M4 22h16"/></svg>
-          </span>
-          <h3>Antenne e reti dati</h3>
-          <p>Installazione antenne TV/SAT e realizzazione di reti dati e cablaggi strutturati per una connettività stabile ed efficiente.</p>
+        <article class="service-card" id="service-antenne">
+          <div class="service-media">
+            <a href="/servizi/antenne-reti-dati.html" aria-label="Approfondisci Antenne e reti dati">
+              <img
+                src="/assets/services/antenne-reti-dati.png"
+                alt="Armadio rack, switch di rete e cablaggio strutturato dati ad alte prestazioni"
+                class="service-img"
+                loading="lazy"
+                width="400"
+                height="250"
+              >
+            </a>
+            <span class="service-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2v20m-6-4 6-16 6 16M4 22h16"/></svg>
+            </span>
+          </div>
+          <div class="service-content">
+            <h3><a href="/servizi/antenne-reti-dati.html" class="service-card-anchor">Antenne e reti dati</a></h3>
+            <p>Installazione antenne TV/SAT e realizzazione di reti dati e cablaggi strutturati per una connettività stabile ed efficiente.</p>
+            <a href="/servizi/antenne-reti-dati.html" class="service-link">
+              Scopri cablaggi, rack e fibra
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </article>
       </div>
     </div>
@@ -153,7 +300,7 @@
         <p class="eyebrow">Chi siamo</p>
         <h2>Esperienza elettrotecnica al servizio di casa e impresa</h2>
         <p>Electrical Core SNC è un'impresa elettrotecnica con sede a Castelnuovo Don Bosco, in provincia di Asti. Seguiamo i nostri clienti dal sopralluogo al collaudo, con impianti a norma e soluzioni pensate per durare nel tempo.</p>
-        <p>Lavoriamo con privati, professionisti e aziende, offrendo un servizio diretto e senza intermediari: preventivo chiaro, tempi certi e assistenza anche dopo la fine dei lavori.</p>
+        <p>Lavoriamo con privati, professionisti e aziende su tutto il territorio delle province di Asti, Torino, Cuneo e del Piemonte, offrendo un servizio diretto e senza intermediari: preventivo chiaro, tempi certi e assistenza anche dopo la fine dei lavori.</p>
 
         <ul class="feature-list">
           <li>
@@ -165,28 +312,60 @@
           <li>
             <div class="feature-text">
               <strong>Impianti a norma</strong>
-              <span>Lavori eseguiti secondo le normative vigenti, con dichiarazione di conformità.</span>
+              <span>Lavori eseguiti secondo le normative vigenti, con rilascio di dichiarazione di conformità.</span>
             </div>
           </li>
           <li>
             <div class="feature-text">
               <strong>Assistenza continua</strong>
-              <span>Supporto e manutenzione anche dopo l'installazione degli impianti.</span>
+              <span>Supporto rapido e manutenzione anche dopo l'installazione degli impianti.</span>
             </div>
           </li>
         </ul>
       </div>
+
+      <div class="about-media">
+        <img
+          id="img-chi-siamo"
+          src="/assets/services/chi-siamo.png"
+          alt="Tecnico Electrical Core SNC con casco rosso e divisa aziendale al lavoro su quadro elettrico"
+          class="about-img"
+          loading="lazy"
+          width="600"
+          height="450"
+        >
+        <div class="about-media-caption">
+          Tecnici specializzati Electrical Core: sicurezza e impianti a regola d'arte
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="area" id="zona">
+  <section class="area" id="dove-siamo">
     <div class="container area-inner">
       <div class="area-copy">
-        <p class="eyebrow">Zona operativa</p>
-        <h2>Operiamo a Castelnuovo Don Bosco e in tutta la provincia di Asti</h2>
-        <p>La nostra sede si trova in Frazione Bardella 34, a Castelnuovo Don Bosco (AT). Interveniamo su tutto il territorio circostante, tra Asti e Torino, per interventi civili e industriali.</p>
-        <address>
-          Frazione Bardella 34, 14022 Castelnuovo Don Bosco (AT)
+        <p class="eyebrow">Dove siamo</p>
+        <h2>Sede a Castelnuovo Don Bosco, attivi nelle province di Asti, Torino e Cuneo</h2>
+        <p>La nostra sede operativa si trova in Frazione Bardella 34, a Castelnuovo Don Bosco (AT). Dalla nostra posizione centrale e strategica, interveniamo con rapidità ed efficienza su tutto il territorio circostante per qualsiasi esigenza civile e industriale.</p>
+
+        <div class="province-cards">
+          <div class="province-pill">
+            <strong>Provincia di Asti</strong>
+            <span>Castelnuovo Don Bosco, Monferrato, Villanova d'Asti, Asti e comuni limitrofi.</span>
+          </div>
+          <div class="province-pill">
+            <strong>Provincia di Torino</strong>
+            <span>Chieri, Carmagnola, Riva presso Chieri, cintura sud-est e area torinese.</span>
+          </div>
+          <div class="province-pill">
+            <strong>Provincia di Cuneo</strong>
+            <span>Area Roero, Alba, Bra e comuni della provincia cuneese.</span>
+          </div>
+        </div>
+
+        <address class="area-address">
+          <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Frazione Bardella 34, 14022 Castelnuovo Don Bosco (AT)</span>
         </address>
       </div>
       <div class="area-map">
