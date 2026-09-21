@@ -1,8 +1,0 @@
-{
-  "name": "Electrical Core SNC",
-  "description": "Sito web di Electrical Core SNC: impianti elettrici civili e industriali, antifurti, videosorveglianza, videocitofonia, automazioni cancelli e reti dati. Sede a Castelnuovo Don Bosco (AT), operativi nelle province di Asti, Torino e Cuneo.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
