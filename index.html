@@ -365,14 +365,12 @@
           <span>Frazione Bardella 34, 14022 Castelnuovo Don Bosco (AT)</span>
         </address>
       </div>
-      <div class="area-map">
-        <iframe
-          title="Mappa: Electrical Core SNC - Frazione Bardella 34, Castelnuovo Don Bosco"
-          src="https://www.google.com/maps?q=Frazione+Bardella+34,+14022+Castelnuovo+Don+Bosco+AT&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
+      <div class="area-map" id="mapContainer" data-map-src="https://www.google.com/maps?q=Frazione+Bardella+34,+14022+Castelnuovo+Don+Bosco+AT&output=embed">
+        <div class="map-placeholder">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.7 11.1 7.3 11.6.4.3 1 .3 1.4 0C13.3 21.1 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 11c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+          <p>Per visualizzare la mappa di Google Maps è necessario accettare i cookie di terze parti.</p>
+          <button type="button" class="btn btn-primary" id="loadMapBtn">Mostra la mappa</button>
+        </div>
       </div>
     </div>
   </section>
@@ -437,7 +435,7 @@
       <img src="assets/logo-footer.webp" alt="Electrical Core SNC" class="footer-logo">
     </div>
     <p>Frazione Bardella 34, 14022 Castelnuovo Don Bosco (AT) &middot; P.IVA 01767090051</p>
-    <p><a href="/privacy.html">Informativa Privacy</a></p>
+    <p><a href="/privacy.html">Informativa Privacy</a> &middot; <a href="#" class="cookie-prefs-link">Preferenze cookie</a></p>
     <p>&copy; <span id="year"></span> Electrical Core SNC. Tutti i diritti riservati.</p>
   </div>
 </footer>

@@ -92,3 +92,97 @@ if (contactForm) {
   });
 }
 
+// Cookie banner e caricamento condizionato di Google Maps
+const COOKIE_CONSENT_KEY = 'ecsnc_cookie_consent'; // 'accepted' | 'rejected'
+
+function getCookieConsent() {
+  try {
+    return localStorage.getItem(COOKIE_CONSENT_KEY);
+  } catch (e) {
+    return null;
+  }
+}
+
+function setCookieConsent(value) {
+  try {
+    localStorage.setItem(COOKIE_CONSENT_KEY, value);
+  } catch (e) {
+    // localStorage non disponibile: la scelta non viene salvata, il banner ricomparirà
+  }
+}
+
+function loadMap() {
+  const mapContainer = document.getElementById('mapContainer');
+  if (!mapContainer || mapContainer.querySelector('iframe')) return;
+  const src = mapContainer.getAttribute('data-map-src');
+  if (!src) return;
+  mapContainer.innerHTML = `<iframe
+    title="Mappa: Electrical Core SNC - Frazione Bardella 34, Castelnuovo Don Bosco"
+    src="${src}"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen></iframe>`;
+}
+
+function hideCookieBanner() {
+  const banner = document.getElementById('cookieBanner');
+  if (banner) banner.classList.remove('visible');
+}
+
+function buildCookieBanner() {
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.id = 'cookieBanner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Informativa sui cookie');
+  banner.innerHTML = `
+    <div class="container cookie-banner-inner">
+      <p>Utilizziamo solo cookie tecnici necessari al funzionamento del sito. La mappa di Google Maps nella sezione "Dove siamo" utilizza cookie di terze parti e viene caricata solo con il tuo consenso. <a href="/privacy.html">Maggiori informazioni</a>.</p>
+      <div class="cookie-banner-actions">
+        <button type="button" class="btn btn-reject" id="cookieReject">Rifiuta</button>
+        <button type="button" class="btn btn-accept" id="cookieAccept">Accetta</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  document.getElementById('cookieAccept').addEventListener('click', () => {
+    setCookieConsent('accepted');
+    hideCookieBanner();
+    loadMap();
+  });
+  document.getElementById('cookieReject').addEventListener('click', () => {
+    setCookieConsent('rejected');
+    hideCookieBanner();
+  });
+}
+
+function showCookieBanner() {
+  let banner = document.getElementById('cookieBanner');
+  if (!banner) {
+    buildCookieBanner();
+    banner = document.getElementById('cookieBanner');
+  }
+  requestAnimationFrame(() => banner.classList.add('visible'));
+}
+
+const cookieConsent = getCookieConsent();
+if (cookieConsent === 'accepted') {
+  loadMap();
+} else if (cookieConsent !== 'rejected') {
+  showCookieBanner();
+}
+
+const loadMapBtn = document.getElementById('loadMapBtn');
+if (loadMapBtn) {
+  loadMapBtn.addEventListener('click', loadMap);
+}
+
+// Link "Preferenze cookie" nel footer: riapre il banner per cambiare scelta
+document.querySelectorAll('.cookie-prefs-link').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    showCookieBanner();
+  });
+});
+
