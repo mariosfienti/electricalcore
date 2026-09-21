@@ -517,6 +517,9 @@ a { color: inherit; text-decoration: none; }
 .contact-form .btn { justify-self: start; }
 .form-note { font-size: .88rem; color: var(--color-text-muted); min-height: 1.2em; margin: 0; }
 .form-note.success { color: #1F8A4C; font-weight: 600; }
+.form-privacy-note { font-size: .82rem; color: var(--color-text-muted); margin: 0; }
+.form-privacy-note a { color: var(--color-red); text-decoration: underline; text-underline-offset: 2px; }
+.form-privacy-note a:hover { color: var(--color-red-dark); }
 
 /* Navigation Dropdown */
 .nav-dropdown {
@@ -712,6 +715,18 @@ a { color: inherit; text-decoration: none; }
   color: var(--color-dark);
   font-weight: 600;
 }
+
+/* Legal pages (Privacy, Cookie Policy...) */
+.legal-page { padding: 56px 0 96px; }
+.legal-container { max-width: 760px; }
+.legal-container h1 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin-bottom: 8px; }
+.legal-updated { color: var(--color-text-muted); font-size: .88rem; margin-bottom: 32px; }
+.legal-container h2 { font-size: 1.2rem; margin-top: 36px; margin-bottom: 10px; }
+.legal-container p { margin-bottom: 14px; }
+.legal-container ul { margin: 0 0 14px; padding-left: 22px; color: var(--color-text-muted); }
+.legal-container li { margin-bottom: 6px; }
+.legal-container a { color: var(--color-red); text-decoration: underline; text-underline-offset: 2px; }
+.legal-container a:hover { color: var(--color-red-dark); }
 
 .service-page-hero {
   padding: 48px 0 60px;
@@ -952,6 +967,8 @@ a { color: inherit; text-decoration: none; }
   width: auto;
 }
 .footer-inner p { color: #9CA1A7; margin: 4px 0; }
+.footer-inner a { color: #9CA1A7; text-decoration: underline; text-underline-offset: 2px; }
+.footer-inner a:hover { color: #fff; }
 
 /* Responsive */
 @media (max-width: 960px) {
