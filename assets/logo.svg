@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="logoTitle">
-  <title id="logoTitle">Electrical Core</title>
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#ffffff" stroke-width="14"/>
-  <path d="M100 12 A88 88 0 0 1 178 130" fill="none" stroke="#23272B" stroke-width="14" stroke-linecap="round"/>
-  <polygon points="112,28 66,108 96,108 84,172 138,90 104,90" fill="#ffffff"/>
-</svg>

@@ -225,11 +225,7 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
 }
 .hero-logo {
-  width: min(320px, 80%);
-  background: var(--color-red);
-  border-radius: 32px;
-  padding: 36px;
-  box-shadow: var(--shadow-md);
+  width: min(420px, 90%);
 }
 
 /* Services */
