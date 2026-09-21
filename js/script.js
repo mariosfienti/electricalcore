@@ -29,9 +29,17 @@ const servicesToggle = document.getElementById('servicesToggle');
 
 if (servicesDropdown && servicesToggle) {
   servicesToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isActive = servicesDropdown.classList.toggle('is-active');
-    servicesToggle.setAttribute('aria-expanded', String(isActive));
+    // Click sulla freccina: apre/chiude il sottomenu senza navigare.
+    // Click sulla voce "Servizi": naviga normalmente alla sezione in home.
+    if (e.target.closest('.dropdown-chevron')) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isActive = servicesDropdown.classList.toggle('is-active');
+      servicesToggle.setAttribute('aria-expanded', String(isActive));
+    } else {
+      servicesDropdown.classList.remove('is-active');
+      servicesToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 
   // Chiudi cliccando fuori
