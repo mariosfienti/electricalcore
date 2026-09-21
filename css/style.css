@@ -125,8 +125,8 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .brand {
@@ -134,7 +134,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
 }
 .brand-logo {
-  height: 44px;
+  height: 62px;
   width: auto;
   flex-shrink: 0;
 }
