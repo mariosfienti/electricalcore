@@ -191,7 +191,7 @@ a { color: inherit; text-decoration: none; }
 /* Hero */
 .hero {
   background: linear-gradient(180deg, var(--color-off) 0%, var(--color-white) 100%);
-  padding: 72px 0 clamp(32px, 3.5vw, 40px);
+  padding: clamp(32px, 6vw, 72px) 0 clamp(32px, 3.5vw, 40px);
 }
 .hero-inner {
   display: grid;
