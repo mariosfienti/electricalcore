@@ -691,6 +691,15 @@ a { color: inherit; text-decoration: none; }
 }
 .contact-list a { font-weight: 600; color: var(--color-dark); }
 .contact-list a:hover { color: var(--color-red); }
+.contact-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+.contact-whatsapp svg { width: 18px; height: 18px; color: #25d366; flex-shrink: 0; }
+.contact-whatsapp:hover { color: #1da851; }
+.contact-whatsapp:hover svg { color: #1da851; }
 
 .contact-form {
   background: var(--color-off);
