@@ -92,21 +92,25 @@ html { scroll-behavior: smooth; }
 .topbar-phone svg { color: #fff; opacity: 1; }
 .topbar a.topbar-phone:hover { color: var(--color-off); }
 @media (max-width: 720px) {
-  .topbar { padding: 8px 0; }
-  .topbar-inner { justify-content: center; text-align: center; padding: 0; }
-  /* Su mobile mostriamo solo il telefono: l'email resta nel footer e nella sezione Contatti */
-  .topbar-inner > .topbar-item { display: none; }
-  /* Il telefono diventa un vero pulsante, non solo testo, per essere una call to action riconoscibile */
-  .topbar-right a.topbar-phone {
-    background: var(--color-red);
-    color: #fff;
-    font-weight: 700;
-    font-size: .88rem;
-    padding: 8px 18px;
-    border-radius: 999px;
+  .topbar { padding: 7px 0; }
+  /* Su mobile email e telefono restano affiancati sulla stessa riga, come il sito di riferimento */
+  .topbar-inner {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 0;
+    gap: 8px;
   }
-  .topbar-right a svg { opacity: 1; }
-  .topbar-right a:hover { background: var(--color-red-dark); color: #fff; }
+  .topbar-inner > .topbar-item {
+    font-size: .72rem;
+    gap: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+  .topbar-inner > .topbar-item span { overflow: hidden; text-overflow: ellipsis; }
+  .topbar-right { gap: 0; flex-wrap: nowrap; }
+  .topbar-right a.topbar-phone { font-size: .78rem; }
+  .topbar-item svg, .topbar-right svg { width: 12px; height: 12px; flex-shrink: 0; }
 }
 
 body {
