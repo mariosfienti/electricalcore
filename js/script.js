@@ -1,7 +1,14 @@
 // Electrical Core SNC — script di navigazione e interazione
 
-// Reveal all'entrata nel viewport (le sezioni above-the-fold hanno già la classe "in" nel markup)
-const revealEls = document.querySelectorAll('.reveal:not(.in), .reveal-stagger:not(.in)');
+// Animazione d'ingresso dell'hero al caricamento (testo, poi foto)
+document.querySelectorAll('.reveal-onload').forEach((el, i) => {
+  requestAnimationFrame(() => {
+    setTimeout(() => el.classList.add('in'), 120 + i * 150);
+  });
+});
+
+// Reveal all'entrata nel viewport (l'hero è gestito a parte, sopra, con l'animazione al caricamento)
+const revealEls = document.querySelectorAll('.reveal:not(.in):not(.reveal-onload), .reveal-stagger:not(.in):not(.reveal-onload)');
 if (revealEls.length && 'IntersectionObserver' in window) {
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
