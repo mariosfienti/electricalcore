@@ -103,6 +103,19 @@ if (contactForm) {
       return;
     }
 
+    // Honeypot: se questo campo (invisibile per le persone) risulta
+    // compilato, è quasi certamente un bot. Finge un invio riuscito senza
+    // contattare FormSubmit, così il bot non capisce di essere stato filtrato.
+    const honeypot = document.getElementById('hp-website')?.value.trim();
+    if (honeypot) {
+      contactForm.reset();
+      if (formNote) {
+        formNote.textContent = 'Richiesta inviata! Ti risponderemo il prima possibile.';
+        formNote.classList.add('success');
+      }
+      return;
+    }
+
     const nome = document.getElementById('nome')?.value.trim() || '';
     const telefono = document.getElementById('telefono')?.value.trim() || '';
     const email = document.getElementById('email')?.value.trim() || '';
