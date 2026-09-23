@@ -130,7 +130,11 @@ if (contactForm) {
     payload.append('_template', 'table');
     payload.append('_captcha', 'false');
 
-    fetch('https://formsubmit.co/ajax/info@electricalcore.it', {
+    // TODO: indirizzo provvisorio per i test — info@electricalcore.it non
+    // esiste ancora come casella reale (dominio non ancora acquistato).
+    // Quando la casella sarà attiva, cambiare qui e cliccare di nuovo il
+    // link di conferma che FormSubmit invierà al nuovo indirizzo.
+    fetch('https://formsubmit.co/ajax/mario.sfienti@gmail.com', {
       method: 'POST',
       headers: { Accept: 'application/json' },
       body: payload,
