@@ -143,6 +143,19 @@ if (contactForm) {
     payload.append('_template', 'table');
     payload.append('_captcha', 'false');
 
+    // FormSubmit può metterci parecchi secondi a rispondere (osservato fino
+    // a ~25s): un avviso di pazienza dopo qualche secondo, e un timeout
+    // reale oltre il quale mostriamo un'alternativa invece di lasciare il
+    // pulsante bloccato su "Invio in corso…" senza nessun feedback.
+    const slowNoticeTimer = setTimeout(() => {
+      if (formNote) {
+        formNote.textContent = 'Il servizio sta impiegando più del solito, un attimo di pazienza…';
+      }
+    }, 6000);
+
+    const controller = new AbortController();
+    const timeoutTimer = setTimeout(() => controller.abort(), 30000);
+
     // TODO: indirizzo provvisorio per i test — info@electricalcore.it non
     // esiste ancora come casella reale (dominio non ancora acquistato).
     // Quando la casella sarà attiva, cambiare qui e cliccare di nuovo il
@@ -151,6 +164,7 @@ if (contactForm) {
       method: 'POST',
       headers: { Accept: 'application/json' },
       body: payload,
+      signal: controller.signal,
     })
       .then((res) => {
         if (!res.ok) throw new Error('Invio non riuscito');
@@ -165,11 +179,13 @@ if (contactForm) {
       })
       .catch(() => {
         if (formNote) {
-          formNote.textContent = 'Invio non riuscito. Chiamaci al 338 4444117, scrivici su WhatsApp o a info@electricalcore.it.';
+          formNote.textContent = 'Invio non riuscito (il servizio potrebbe essere lento o non disponibile). Chiamaci al 338 4444117, scrivici su WhatsApp o a info@electricalcore.it.';
           formNote.classList.add('error');
         }
       })
       .finally(() => {
+        clearTimeout(slowNoticeTimer);
+        clearTimeout(timeoutTimer);
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = originalBtnLabel;
