@@ -38,7 +38,9 @@ if (navToggle && primaryNav) {
     navToggle.setAttribute('aria-expanded', String(isOpen));
   });
 
-  primaryNav.querySelectorAll('a').forEach((link) => {
+  // Il toggle "Servizi" è escluso: su mobile il suo click apre/chiude solo il
+  // sottomenu (gestito più sotto) e non deve richiudere tutto il pannello.
+  primaryNav.querySelectorAll('a:not(.nav-dropdown-toggle)').forEach((link) => {
     link.addEventListener('click', () => {
       primaryNav.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
@@ -52,9 +54,13 @@ const servicesToggle = document.getElementById('servicesToggle');
 
 if (servicesDropdown && servicesToggle) {
   servicesToggle.addEventListener('click', (e) => {
-    // Click sulla freccina: apre/chiude il sottomenu senza navigare.
-    // Click sulla voce "Servizi": naviga normalmente alla sezione in home.
-    if (e.target.closest('.dropdown-chevron')) {
+    // Su mobile il menu è a comparsa (non c'è hover): tutta la riga "Servizi"
+    // apre/chiude il sottomenu, altrimenti la freccina da toccare è troppo
+    // piccola per un tap preciso e il sottomenu non si riesce mai ad aprire.
+    // Su desktop invece il testo naviga alla sezione in home e solo la
+    // freccina apre/chiude l'anteprima del sottomenu senza navigare.
+    const isMobile = window.matchMedia('(max-width: 720px)').matches;
+    if (isMobile || e.target.closest('.dropdown-chevron')) {
       e.preventDefault();
       e.stopPropagation();
       const isActive = servicesDropdown.classList.toggle('is-active');
