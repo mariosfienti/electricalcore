@@ -86,11 +86,11 @@ html { scroll-behavior: smooth; }
 .topbar-right { display: flex; gap: 20px; flex-wrap: wrap; }
 .topbar a.topbar-phone {
   font-weight: 700;
-  color: var(--color-red);
+  color: #fff;
   letter-spacing: .01em;
 }
 .topbar-phone svg { color: #fff; opacity: 1; }
-.topbar a.topbar-phone:hover { color: var(--color-red-dark); }
+.topbar a.topbar-phone:hover { color: var(--color-off); }
 @media (max-width: 720px) {
   .topbar { padding: 8px 0; }
   .topbar-inner { justify-content: center; text-align: center; padding: 0; }
