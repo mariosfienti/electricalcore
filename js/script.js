@@ -88,7 +88,9 @@ if (servicesDropdown && servicesToggle) {
   });
 }
 
-// Form di contatto: prepara un'email pre-compilata
+// Form di contatto: invio diretto via FormSubmit (nessun client di posta
+// richiesto sul dispositivo del visitatore — prima il "mailto:" non
+// funzionava per chi non aveva un programma di posta configurato/collegato).
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 
@@ -107,17 +109,55 @@ if (contactForm) {
     const servizio = document.getElementById('servizio')?.value.trim() || 'Generale';
     const messaggio = document.getElementById('messaggio')?.value.trim() || '';
 
-    const subject = encodeURIComponent(`Richiesta preventivo [${servizio}] - ${nome}`);
-    const body = encodeURIComponent(
-      `Nome: ${nome}\nTelefono: ${telefono}\nEmail: ${email}\nServizio di interesse: ${servizio}\n\nMessaggio:\n${messaggio}`
-    );
-
-    window.location.href = `mailto:info@electricalcore.it?subject=${subject}&body=${body}`;
-
-    if (formNote) {
-      formNote.textContent = 'Si aprirà il tuo programma di posta con la richiesta già compilata: invia l\'email per completare.';
-      formNote.classList.add('success');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnLabel = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Invio in corso…';
     }
+    if (formNote) {
+      formNote.textContent = '';
+      formNote.classList.remove('success', 'error');
+    }
+
+    const payload = new FormData();
+    payload.append('Nome', nome);
+    payload.append('Telefono', telefono);
+    payload.append('Email', email || 'non indicata');
+    payload.append('Servizio di interesse', servizio);
+    payload.append('Messaggio', messaggio);
+    payload.append('_subject', `Richiesta preventivo [${servizio}] - ${nome}`);
+    payload.append('_template', 'table');
+    payload.append('_captcha', 'false');
+
+    fetch('https://formsubmit.co/ajax/info@electricalcore.it', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: payload,
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Invio non riuscito');
+        return res.json();
+      })
+      .then(() => {
+        contactForm.reset();
+        if (formNote) {
+          formNote.textContent = 'Richiesta inviata! Ti risponderemo il prima possibile.';
+          formNote.classList.add('success');
+        }
+      })
+      .catch(() => {
+        if (formNote) {
+          formNote.textContent = 'Invio non riuscito. Chiamaci al 338 4444117, scrivici su WhatsApp o a info@electricalcore.it.';
+          formNote.classList.add('error');
+        }
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnLabel;
+        }
+      });
   });
 }
 
