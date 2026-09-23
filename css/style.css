@@ -292,6 +292,27 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-heading); font-weight: 700; font-size: 1.15rem; color: #fff;
 }
 .contact-strip-card .cs-phone svg { width: 18px; height: 18px; color: var(--color-red); flex-shrink: 0; }
+.cs-whatsapp-col { align-items: flex-start; }
+.cs-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  padding: 8px;
+  margin: -8px;
+  border-radius: 14px;
+  transition: background .2s ease;
+}
+.cs-whatsapp:hover { background: rgba(255,255,255,.06); }
+.cs-whatsapp img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: #fff;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.cs-whatsapp .cs-phone svg { color: #25d366; }
 @media (max-width: 880px) {
   .contact-strip-card { grid-template-columns: 1fr; text-align: left; }
 }
