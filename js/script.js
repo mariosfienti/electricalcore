@@ -106,7 +106,7 @@ if (contactForm) {
       `Nome: ${nome}\nTelefono: ${telefono}\nEmail: ${email}\nServizio di interesse: ${servizio}\n\nMessaggio:\n${messaggio}`
     );
 
-    window.location.href = `mailto:electricalcoresnc@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@electricalcore.it?subject=${subject}&body=${body}`;
 
     if (formNote) {
       formNote.textContent = 'Si aprirà il tuo programma di posta con la richiesta già compilata: invia l\'email per completare.';
