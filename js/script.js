@@ -209,3 +209,21 @@ document.querySelectorAll('.cookie-prefs-link').forEach((link) => {
   });
 });
 
+// Pulsante "torna su": iniettato in ogni pagina, compare dopo un po' di scroll
+const backToTop = document.createElement('button');
+backToTop.type = 'button';
+backToTop.className = 'back-to-top';
+backToTop.setAttribute('aria-label', 'Torna all\'inizio della pagina');
+backToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+document.body.appendChild(backToTop);
+
+function toggleBackToTop() {
+  backToTop.classList.toggle('visible', window.scrollY > 480);
+}
+window.addEventListener('scroll', toggleBackToTop, { passive: true });
+toggleBackToTop();
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
