@@ -84,13 +84,20 @@ html { scroll-behavior: smooth; }
 .topbar a:hover { color: #fff; }
 .topbar-item svg, .topbar a svg { width: 13px; height: 13px; opacity: .85; fill: none; stroke: currentColor; stroke-width: 2; }
 .topbar-right { display: flex; gap: 20px; flex-wrap: wrap; }
+.topbar a.topbar-phone {
+  font-weight: 700;
+  color: var(--color-red);
+  letter-spacing: .01em;
+}
+.topbar-phone svg { color: #fff; opacity: 1; }
+.topbar a.topbar-phone:hover { color: var(--color-red-dark); }
 @media (max-width: 720px) {
   .topbar { padding: 8px 0; }
   .topbar-inner { justify-content: center; text-align: center; padding: 0; }
-  /* Su mobile mostriamo solo il telefono: l'indirizzo resta nel footer e nella sezione Dove siamo */
+  /* Su mobile mostriamo solo il telefono: l'email resta nel footer e nella sezione Contatti */
   .topbar-inner > .topbar-item { display: none; }
   /* Il telefono diventa un vero pulsante, non solo testo, per essere una call to action riconoscibile */
-  .topbar-right a {
+  .topbar-right a.topbar-phone {
     background: var(--color-red);
     color: #fff;
     font-weight: 700;
