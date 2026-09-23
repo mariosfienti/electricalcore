@@ -1,5 +1,21 @@
 // Electrical Core SNC — script di navigazione e interazione
 
+// Reveal all'entrata nel viewport (le sezioni above-the-fold hanno già la classe "in" nel markup)
+const revealEls = document.querySelectorAll('.reveal:not(.in), .reveal-stagger:not(.in)');
+if (revealEls.length && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach((el) => revealObserver.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add('in'));
+}
+
 const yearEl = document.getElementById('year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
