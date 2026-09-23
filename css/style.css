@@ -85,9 +85,21 @@ html { scroll-behavior: smooth; }
 .topbar-item svg, .topbar a svg { width: 13px; height: 13px; opacity: .85; fill: none; stroke: currentColor; stroke-width: 2; }
 .topbar-right { display: flex; gap: 20px; flex-wrap: wrap; }
 @media (max-width: 720px) {
-  .topbar-inner { justify-content: center; text-align: center; padding: 7px 0; }
+  .topbar { padding: 8px 0; }
+  .topbar-inner { justify-content: center; text-align: center; padding: 0; }
   /* Su mobile mostriamo solo il telefono: l'indirizzo resta nel footer e nella sezione Dove siamo */
   .topbar-inner > .topbar-item { display: none; }
+  /* Il telefono diventa un vero pulsante, non solo testo, per essere una call to action riconoscibile */
+  .topbar-right a {
+    background: var(--color-red);
+    color: #fff;
+    font-weight: 700;
+    font-size: .88rem;
+    padding: 8px 18px;
+    border-radius: 999px;
+  }
+  .topbar-right a svg { opacity: 1; }
+  .topbar-right a:hover { background: var(--color-red-dark); color: #fff; }
 }
 
 body {
