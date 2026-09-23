@@ -140,12 +140,10 @@ if (contactForm) {
     payload.append('Servizio di interesse', servizio);
     payload.append('Messaggio', messaggio);
     payload.append('_subject', `Richiesta preventivo [${servizio}] - ${nome}`);
-    payload.append('_template', 'table');
-    payload.append('_captcha', 'false');
+    if (email) payload.append('_replyto', email);
 
-    // FormSubmit può metterci parecchi secondi a rispondere (osservato fino
-    // a ~25s): un avviso di pazienza dopo qualche secondo, e un timeout
-    // reale oltre il quale mostriamo un'alternativa invece di lasciare il
+    // Formspree in genere risponde in fretta, ma teniamo comunque un avviso
+    // di pazienza e un timeout di sicurezza per non lasciare mai il
     // pulsante bloccato su "Invio in corso…" senza nessun feedback.
     const slowNoticeTimer = setTimeout(() => {
       if (formNote) {
@@ -156,11 +154,9 @@ if (contactForm) {
     const controller = new AbortController();
     const timeoutTimer = setTimeout(() => controller.abort(), 30000);
 
-    // TODO: indirizzo provvisorio per i test — info@electricalcore.it non
-    // esiste ancora come casella reale (dominio non ancora acquistato).
-    // Quando la casella sarà attiva, cambiare qui e cliccare di nuovo il
-    // link di conferma che FormSubmit invierà al nuovo indirizzo.
-    fetch('https://formsubmit.co/ajax/mario.sfienti@gmail.com', {
+    // Endpoint Formspree del form "electricalcore" (account mario.sfienti@gmail.com,
+    // provvisorio in attesa del dominio reale — vedi TODO più sotto).
+    fetch('https://formspree.io/f/mjykrayw', {
       method: 'POST',
       headers: { Accept: 'application/json' },
       body: payload,
