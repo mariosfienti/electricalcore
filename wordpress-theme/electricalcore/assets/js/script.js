@@ -95,7 +95,11 @@ if (servicesDropdown && servicesToggle) {
 // posta richiesto sul dispositivo del visitatore, come nella versione statica).
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
-const ecSettings = window.ecSettings || {};
+// Nome diverso da "ecSettings" apposta: quella variabile è già dichiarata
+// da WordPress (wp_localize_script, con "var") prima di questo file — usare
+// lo stesso nome con "const" qui provocherebbe un SyntaxError che blocca
+// l'intero script.
+const ecData = window.ecSettings || {};
 
 if (contactForm) {
   contactForm.addEventListener('submit', (event) => {
@@ -138,7 +142,7 @@ if (contactForm) {
 
     const payload = new FormData();
     payload.append('action', 'ec_contact_form');
-    payload.append('nonce', ecSettings.nonce || '');
+    payload.append('nonce', ecData.nonce || '');
     payload.append('nome', nome);
     payload.append('telefono', telefono);
     payload.append('email', email);
@@ -154,7 +158,7 @@ if (contactForm) {
     const controller = new AbortController();
     const timeoutTimer = setTimeout(() => controller.abort(), 30000);
 
-    fetch(ecSettings.ajaxUrl || '/wp-admin/admin-post.php', {
+    fetch(ecData.ajaxUrl || '/wp-admin/admin-post.php', {
       method: 'POST',
       headers: { Accept: 'application/json' },
       body: payload,
@@ -173,8 +177,8 @@ if (contactForm) {
       })
       .catch((err) => {
         if (formNote) {
-          const telefono = ecSettings.telefono || '338 4444117';
-          const email = ecSettings.email || 'info@electricalcore.it';
+          const telefono = ecData.telefono || '338 4444117';
+          const email = ecData.email || 'info@electricalcore.it';
           formNote.textContent = err.message && err.message !== 'Invio non riuscito'
             ? err.message
             : `Invio non riuscito. Chiamaci al ${telefono}, scrivici su WhatsApp o a ${email}.`;
@@ -236,7 +240,7 @@ function buildCookieBanner() {
   banner.id = 'cookieBanner';
   banner.setAttribute('role', 'dialog');
   banner.setAttribute('aria-label', 'Informativa sui cookie');
-  const privacyUrl = ecSettings.privacyUrl || '/privacy/';
+  const privacyUrl = ecData.privacyUrl || '/privacy/';
   banner.innerHTML = `
     <div class="container cookie-banner-inner">
       <p>Utilizziamo solo cookie tecnici necessari al funzionamento del sito. La mappa di Google Maps nella sezione "Dove siamo" utilizza cookie di terze parti e viene caricata solo con il tuo consenso. <a href="${privacyUrl}">Maggiori informazioni</a>.</p>
