@@ -319,3 +319,31 @@ document.querySelectorAll('.cookie-prefs-link').forEach((link) => {
   });
 });
 
+// Galleria lavori nelle pagine servizio: legge le foto caricate dal cliente
+// tramite l'area riservata (/admin) e le mostra nella pagina pubblica.
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c]));
+}
+
+document.querySelectorAll('[data-gallery]').forEach((container) => {
+  const slug = container.dataset.gallery;
+  fetch(`../uploads/${slug}/gallery.json`, { cache: 'no-store' })
+    .then((res) => (res.ok ? res.json() : []))
+    .then((items) => {
+      if (!Array.isArray(items) || !items.length) return;
+      container.innerHTML = items
+        .map((item) => {
+          const caption = item.caption ? `<figcaption>${escapeHtml(item.caption)}</figcaption>` : '';
+          const alt = item.caption ? escapeHtml(item.caption) : 'Lavoro realizzato da Electrical Core';
+          return `<figure class="gallery-item">
+            <img src="../uploads/${slug}/${encodeURIComponent(item.file)}" alt="${alt}" loading="lazy">
+            ${caption}
+          </figure>`;
+        })
+        .join('');
+    })
+    .catch(() => {});
+});
+

@@ -44,6 +44,25 @@ Il form contatti non è collegato a un backend: alla conferma apre un'email prec
 
 ## Da personalizzare quando disponibili
 
-- Foto reali di cantieri/lavori (attualmente il sito usa solo il logo vettoriale).
 - Eventuale dominio definitivo (nel codice è impostato un dominio segnaposto `electricalcoresnc.it`).
 - Social network, se l'azienda ne attiva.
+
+## Caricamento foto lavori (area riservata `/admin`)
+
+Il cliente può caricare in autonomia le foto dei lavori realizzati, una per servizio, tramite una piccola area riservata — senza toccare testi o struttura del sito.
+
+**Come funziona**
+- `/admin/index.php` — form di login (password) + upload foto + gestione/eliminazione delle foto già caricate, con selezione del servizio da un menu a tendina.
+- Le foto vengono ridimensionate (lato massimo 1920px) e convertite in `.webp` lato server (libreria GD di PHP), poi salvate in `/uploads/<slug-servizio>/`.
+- Ogni cartella `/uploads/<slug-servizio>/gallery.json` elenca le foto di quel servizio; le pagine `servizi/*.html` leggono questo file via JavaScript e mostrano la galleria nella sezione "I nostri lavori".
+- Nessun database: solo file system, compatibile con l'hosting Aruba Basic Linux già attivo (che non include MySQL).
+
+**Setup all'attivazione (una tantum)**
+1. Copiare `admin/credentials.example.php` in `admin/credentials.php` e generare l'hash della password del cliente:
+   ```bash
+   php -r "echo password_hash('la-password-del-cliente', PASSWORD_DEFAULT), PHP_EOL;"
+   ```
+   Incollare l'hash ottenuto in `admin/credentials.php`. **Questo file non va mai versionato** (è già escluso da `.gitignore`).
+2. Verificare che l'hosting abbia il modulo GD di PHP attivo (di norma già presente su Aruba Linux).
+3. Facoltativo ma consigliato: proteggere ulteriormente la cartella `/admin/` anche con lo strumento nativo "Protezione Directory" del pannello Aruba, come livello di sicurezza aggiuntivo rispetto al login applicativo.
+4. Comunicare al cliente l'URL (`https://<dominio>/admin/`) e la password scelta.

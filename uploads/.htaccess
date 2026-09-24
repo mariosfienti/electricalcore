@@ -1,0 +1,7 @@
+Options -Indexes
+
+# Le foto caricate dal cliente non devono mai poter essere eseguite come
+# script, qualunque estensione riesca a intrufolarsi in un upload.
+<FilesMatch "\.(php|phtml|php\d|pl|py|cgi|sh)$">
+  Require all denied
+</FilesMatch>
