@@ -1,0 +1,14 @@
+/*
+Theme Name: Electrical Core
+Theme URI: https://www.electricalcoresnc.it/
+Author: Electrical Core SNC
+Description: Tema custom per il sito vetrina di Electrical Core SNC (impianti elettrici, sicurezza, automazioni). Porta 1:1 il design del sito statico originale in WordPress, con contenuti gestibili dal cliente tramite Advanced Custom Fields.
+Version: 1.0.0
+Requires PHP: 7.4
+Text Domain: electricalcore
+*/
+
+/* Il foglio di stile vero e proprio è in assets/css/main.css (identico
+   all'originale del sito statico) ed è caricato da inc/theme-setup.php.
+   Questo file esiste solo perché WordPress richiede uno style.css con
+   l'intestazione del tema per riconoscerlo come tema valido. */
