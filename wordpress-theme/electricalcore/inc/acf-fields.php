@@ -19,17 +19,7 @@ function ec_register_acf_fields() {
         return;
     }
 
-    if (function_exists('acf_add_options_page')) {
-        acf_add_options_page([
-            'page_title' => 'Impostazioni Sito',
-            'menu_title' => 'Impostazioni Sito',
-            'menu_slug'  => 'ec-impostazioni-sito',
-            'capability' => 'edit_posts',
-            'icon_url'   => 'dashicons-admin-generic',
-            'position'   => 3,
-            'redirect'   => false,
-        ]);
-    }
+    $ec_settings_page_id = function_exists('ec_get_settings_page_id') ? ec_get_settings_page_id() : 0;
 
     acf_add_local_field_group([
         'key' => 'group_ec_options',
@@ -88,9 +78,9 @@ function ec_register_acf_fields() {
         'location' => [
             [
                 [
-                    'param' => 'options_page',
+                    'param' => 'page',
                     'operator' => '==',
-                    'value' => 'ec-impostazioni-sito',
+                    'value' => $ec_settings_page_id,
                 ],
             ],
         ],

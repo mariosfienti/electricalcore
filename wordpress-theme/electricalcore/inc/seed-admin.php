@@ -12,16 +12,17 @@ if (!defined('ABSPATH')) {
 require_once get_template_directory() . '/seed/seed-content.php';
 
 function ec_seed_admin_menu() {
-    add_submenu_page(
-        'ec-impostazioni-sito',
+    add_menu_page(
         'Importa contenuti demo',
         'Importa contenuti demo',
         'manage_options',
         'ec-importa-contenuti',
-        'ec_seed_admin_page'
+        'ec_seed_admin_page',
+        'dashicons-download',
+        3
     );
 }
-add_action('admin_menu', 'ec_seed_admin_menu', 20);
+add_action('admin_menu', 'ec_seed_admin_menu');
 
 function ec_seed_admin_page() {
     if (!current_user_can('manage_options')) {
@@ -31,13 +32,14 @@ function ec_seed_admin_page() {
     ?>
     <div class="wrap">
       <h1>Importa contenuti demo</h1>
-      <?php if ($notice === '1'): ?>
-        <div class="notice notice-success"><p>Importazione completata: Impostazioni Sito, i 5 Servizi e la pagina Privacy sono stati popolati con i contenuti reali del sito Electrical Core.</p></div>
+      <?php if ($notice === '1'): $ec_settings_edit_link = get_edit_post_link(ec_get_settings_page_id()); ?>
+        <div class="notice notice-success"><p>Importazione completata: la pagina "Impostazioni Sito", i 5 Servizi e la pagina Privacy sono stati popolati con i contenuti reali del sito Electrical Core. <?php if ($ec_settings_edit_link): ?><a href="<?php echo esc_url($ec_settings_edit_link); ?>">Apri "Impostazioni Sito" per modificarla</a>.<?php endif; ?></p></div>
       <?php elseif ($notice === '0'): ?>
         <div class="notice notice-error"><p>Importazione non riuscita: verifica che il plugin Advanced Custom Fields sia attivo e riprova.</p></div>
       <?php endif; ?>
       <p>Questo pulsante compila automaticamente il sito con gli stessi contenuti (testi, servizi, contatti) del sito statico originale, così puoi vedere subito il tema funzionante e poi modificare quello che vuoi da qui in bacheca.</p>
-      <p>È sicuro premerlo più volte: aggiorna i contenuti esistenti invece di duplicarli.</p>
+      <p>I contatti, il testo dell'hero e di "Chi siamo"/"Dove siamo" si modificano da <strong>Pagine → Impostazioni Sito</strong> (una pagina non pubblica, creata automaticamente dal tema). I singoli servizi si modificano dal menu <strong>Servizi</strong>.</p>
+      <p>È sicuro premere il pulsante più volte: aggiorna i contenuti esistenti invece di duplicarli.</p>
       <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
         <?php wp_nonce_field('ec_seed_content'); ?>
         <input type="hidden" name="action" value="ec_seed_content">

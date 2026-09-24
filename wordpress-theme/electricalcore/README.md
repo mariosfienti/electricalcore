@@ -13,10 +13,14 @@ i contenuti dal pannello di amministrazione senza toccare codice.
    il sito modificabile non compaiono** (comparirà un avviso in bacheca finché
    non è attivo).
    - Il tema usa solo funzioni della versione **gratuita** di ACF: non serve
-     comprare ACF PRO. (Per questo alcuni elenchi — badge, punti elenco dei
-     servizi — sono campi "una voce per riga" invece di liste flessibili: è la
-     scelta più semplice che non richiede spese aggiuntive. Se in futuro vorrai
-     liste illimitate/riordinabili, si può passare ad ACF PRO, a pagamento.)
+     comprare ACF PRO. Per questo: (a) alcuni elenchi — badge, punti elenco dei
+     servizi — sono campi "una voce per riga" invece di liste flessibili
+     (Repeater, a pagamento); (b) i campi globali del sito (contatti, hero,
+     ecc.) non usano le "Pagine opzioni" di ACF, anche quelle a pagamento —
+     il tema crea invece automaticamente una normale Pagina di WordPress
+     chiamata "Impostazioni Sito" (non pubblica) con gli stessi campi
+     agganciati. Se in futuro vorrai liste illimitate/riordinabili o le
+     Pagine opzioni "vere", si può passare ad ACF PRO.
 3. Copia la cartella `electricalcore` (questa cartella) dentro
    `wp-content/themes/` del tuo WordPress, poi attivala da Aspetto → Temi.
 4. (Consigliato) Installa il plugin gratuito **WP Mail SMTP** e configuralo con
@@ -30,7 +34,8 @@ Appena attivato il tema, tutte le pagine sono vuote. Per popolare subito il sito
 con **gli stessi contenuti veri del sito originale** (testi, contatti, i 5
 servizi con tutte le schede/FAQ, la pagina Privacy):
 
-1. Vai in bacheca su **Impostazioni Sito → Importa contenuti demo**.
+1. Vai in bacheca sulla voce di menu **"Importa contenuti demo"** (icona di
+   download, vicino in alto nel menu laterale).
 2. Premi il pulsante "Importa contenuti di esempio".
 3. Apri il sito: dovrebbe apparire identico (nei contenuti) al sito statico.
 
@@ -42,13 +47,18 @@ ripartire dal testo originale).
 
 Tutto si edita da voci di menu semplici in bacheca, senza mai toccare codice:
 
+Tutti i campi "globali" del sito vivono in un'unica pagina, non pubblica,
+creata automaticamente dal tema: **Pagine → Impostazioni Sito** (cercala
+nell'elenco delle Pagine, non è un menu a parte). Apre l'editor normale di
+WordPress con dei tab in basso invece del solito corpo del testo.
+
 | Cosa vuole cambiare | Dove andare |
 |---|---|
-| Telefono, email, indirizzo, P.IVA | **Impostazioni Sito → Impostazioni Sito**, tab "Contatti" |
-| Titolo/testo della prima schermata (hero) | **Impostazioni Sito**, tab "Homepage - Hero" |
-| Testo "Chi siamo" e i 3 punti di forza | **Impostazioni Sito**, tab "Homepage - Chi siamo" |
-| Testo e zone servite in "Dove siamo" | **Impostazioni Sito**, tab "Homepage - Dove siamo" |
-| Frase nel footer | **Impostazioni Sito**, tab "Footer" |
+| Telefono, email, indirizzo, P.IVA | **Pagine → Impostazioni Sito**, tab "Contatti" |
+| Titolo/testo della prima schermata (hero) | **Pagine → Impostazioni Sito**, tab "Homepage - Hero" |
+| Testo "Chi siamo" e i 3 punti di forza | **Pagine → Impostazioni Sito**, tab "Homepage - Chi siamo" |
+| Testo e zone servite in "Dove siamo" | **Pagine → Impostazioni Sito**, tab "Homepage - Dove siamo" |
+| Frase nel footer | **Pagine → Impostazioni Sito**, tab "Footer" |
 | Testi/immagini di un singolo servizio (es. "Impianti elettrici") | Menu **Servizi** → apri il servizio → modifica i campi nelle varie schede (Scheda, Testata pagina, Ambiti di intervento, Come lavoriamo, FAQ) |
 | Foto del servizio (card + testata pagina) | Nel servizio, riquadro "Immagine in evidenza" a destra |
 | Ordine con cui i servizi compaiono nel menu e in homepage | Nel servizio, riquadro "Attributi pagina" → campo "Ordine" (0 = primo) |
@@ -63,7 +73,7 @@ automaticamente in un elenco puntato.
 
 Il form non usa più Formspree (servizio esterno a pagamento oltre una certa
 soglia): invia l'email direttamente tramite WordPress (`wp_mail`), all'indirizzo
-impostato in Impostazioni Sito → Contatti → Email. Se le email non arrivano,
+impostato in Pagine → Impostazioni Sito → tab Contatti → Email. Se le email non arrivano,
 installa e configura **WP Mail SMTP** (vedi sopra) — è quasi sempre necessario
 su hosting condiviso.
 
@@ -79,10 +89,11 @@ page.php                     pagina generica (es. Privacy)
 inc/
   theme-setup.php            enqueue CSS/JS, dimensioni immagini
   cpt-servizi.php             registra il tipo di contenuto "Servizio"
-  acf-fields.php               tutti i campi personalizzati editabili
-  contact-form.php              invio email del form contatti
-  seed-admin.php                 pagina "Importa contenuti demo"
-  helpers.php                    funzioni di supporto
+  settings-page.php            crea/trova la pagina "Impostazioni Sito"
+  acf-fields.php                 tutti i campi personalizzati editabili
+  contact-form.php                 invio email del form contatti
+  seed-admin.php                    pagina "Importa contenuti demo"
+  helpers.php                        funzioni di supporto
 seed/
   seed-content.php                logica di importazione contenuti
   seed-servizi-data.php            testi reali dei 5 servizi

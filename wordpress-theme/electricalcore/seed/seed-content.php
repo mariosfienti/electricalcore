@@ -144,17 +144,18 @@ function ec_run_seed_content() {
         'provincia3_comuni' => 'Area Roero, Alba, Bra e comuni della provincia cuneese.',
         'footer_tagline' => 'Impianti elettrici, sicurezza e connettività per casa e impresa, nelle province di Asti, Torino e Cuneo.',
     ];
+    $settings_page_id = ec_get_settings_page_id();
     foreach ($options as $field_name => $value) {
-        update_field($field_name, $value, 'option');
+        update_field($field_name, $value, $settings_page_id);
     }
 
     $hero_img_id = ec_seed_local_image('hero-van.webp', 'Furgone aziendale Electrical Core SNC');
     if ($hero_img_id) {
-        update_field('hero_immagine', $hero_img_id, 'option');
+        update_field('hero_immagine', $hero_img_id, $settings_page_id);
     }
     $chi_siamo_img_id = ec_seed_local_image('services/chi-siamo.webp', 'Tecnico Electrical Core al lavoro');
     if ($chi_siamo_img_id) {
-        update_field('chi_siamo_immagine', $chi_siamo_img_id, 'option');
+        update_field('chi_siamo_immagine', $chi_siamo_img_id, $settings_page_id);
     }
 
     // --- Servizi ---
@@ -171,7 +172,7 @@ function ec_run_seed_content() {
 
     return [
         'ok' => true,
-        'message' => "Importazione completata: {$created} servizi aggiornati, Impostazioni Sito e pagina Privacy popolate.",
+        'message' => "Importazione completata: {$created} servizi aggiornati, pagina \"Impostazioni Sito\" e pagina Privacy popolate.",
     ];
 }
 

@@ -12,10 +12,10 @@ if (!defined('ABSPATH')) {
  * di default se ACF non è attivo o il campo non è stato ancora compilato.
  */
 function ec_option($field_name, $default = '') {
-    if (!function_exists('get_field')) {
+    if (!function_exists('get_field') || !function_exists('ec_get_settings_page_id')) {
         return $default;
     }
-    $value = get_field($field_name, 'option');
+    $value = get_field($field_name, ec_get_settings_page_id());
     if ($value === '' || $value === null || $value === false) {
         return $default;
     }
@@ -27,10 +27,10 @@ function ec_option($field_name, $default = '') {
  * sempre un array (vuoto se non compilato), mai il default scalare.
  */
 function ec_option_repeater($field_name) {
-    if (!function_exists('get_field')) {
+    if (!function_exists('get_field') || !function_exists('ec_get_settings_page_id')) {
         return [];
     }
-    $value = get_field($field_name, 'option');
+    $value = get_field($field_name, ec_get_settings_page_id());
     return is_array($value) ? $value : [];
 }
 
