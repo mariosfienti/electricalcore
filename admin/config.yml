@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: mariosfienti/electricalcore
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "immagini"
+    label: "Immagini del sito"
+    files:
+      - name: "immagini-sito"
+        label: "Foto del sito"
+        file: "content/images.json"
+        fields:
+          - { label: "Foto furgone aziendale (Home)", name: "hero-van", widget: "image", required: false }
+          - { label: "Foto tecnico al lavoro (sezione Chi siamo)", name: "chi-siamo", widget: "image", required: false }
+          - { label: "Impianti elettrici civili e industriali (scheda + pagina servizio)", name: "impianti-elettrici", widget: "image", required: false }
+          - { label: "Antifurti e videosorveglianza (scheda + pagina servizio)", name: "videosorveglianza", widget: "image", required: false }
+          - { label: "Videocitofonia (scheda + pagina servizio)", name: "videocitofonia", widget: "image", required: false }
+          - { label: "Automazioni cancelli (scheda + pagina servizio)", name: "automazione-cancelli", widget: "image", required: false }
+          - { label: "Antenne e reti dati (scheda + pagina servizio)", name: "antenne-reti-dati", widget: "image", required: false }
