@@ -234,9 +234,10 @@ function buildCookieBanner() {
   banner.id = 'cookieBanner';
   banner.setAttribute('role', 'dialog');
   banner.setAttribute('aria-label', 'Informativa sui cookie');
+  const privacyHref = location.pathname.includes('/servizi/') ? '../privacy.html' : 'privacy.html';
   banner.innerHTML = `
     <div class="container cookie-banner-inner">
-      <p>Utilizziamo solo cookie tecnici necessari al funzionamento del sito. La mappa di Google Maps nella sezione "Dove siamo" utilizza cookie di terze parti e viene caricata solo con il tuo consenso. <a href="/privacy.html">Maggiori informazioni</a>.</p>
+      <p>Utilizziamo solo cookie tecnici necessari al funzionamento del sito. La mappa di Google Maps nella sezione "Dove siamo" utilizza cookie di terze parti e viene caricata solo con il tuo consenso. <a href="${privacyHref}">Maggiori informazioni</a>.</p>
       <div class="cookie-banner-actions">
         <button type="button" class="btn btn-reject" id="cookieReject">Rifiuta</button>
         <button type="button" class="btn btn-accept" id="cookieAccept">Accetta</button>

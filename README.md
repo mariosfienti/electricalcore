@@ -36,7 +36,7 @@ Il sito non richiede build né database: si può pubblicare su qualsiasi hosting
 
 - **GitHub Pages**: crea un repository, carica questi file, attiva Pages sul branch principale.
 - **Netlify / Vercel**: trascina la cartella nel pannello di deploy, oppure collega un repository Git.
-- Serve solo un dominio (es. electricalcoresnc.it) da puntare all'hosting scelto.
+- Serve solo un dominio (es. electricalcore.it) da puntare all'hosting scelto.
 
 ## Modulo contatti
 
@@ -45,5 +45,5 @@ Il form contatti non è collegato a un backend: alla conferma apre un'email prec
 ## Da personalizzare quando disponibili
 
 - Foto reali di cantieri/lavori (attualmente il sito usa solo il logo vettoriale).
-- Eventuale dominio definitivo (nel codice è impostato un dominio segnaposto `electricalcoresnc.it`).
+- Eventuale dominio definitivo (nel codice è impostato `electricalcore.it`, da confermare dopo la registrazione).
 - Social network, se l'azienda ne attiva.
