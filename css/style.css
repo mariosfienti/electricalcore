@@ -1,10 +1,10 @@
 /* Electrical Core SNC — stylesheet */
 
 :root {
-  --color-red: #D9382B;
-  --color-red-dark: #B32A20;
-  --color-dark: #23272B;
-  --color-dark-soft: #33383D;
+  --color-red: #E52E35;
+  --color-red-dark: #BD2227;
+  --color-dark: #203340;
+  --color-dark-soft: #304452;
   --color-white: #FFFFFF;
   --color-off: #F7F5F3;
   --color-border: #E7E2DD;
@@ -860,7 +860,7 @@ a { color: inherit; text-decoration: none; }
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(224, 43, 32, 0.08);
+  background: rgba(229, 46, 53, 0.08);
   color: var(--color-red);
   display: flex;
   align-items: center;
@@ -1070,7 +1070,7 @@ a { color: inherit; text-decoration: none; }
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: rgba(224, 43, 32, 0.08);
+  background: rgba(229, 46, 53, 0.08);
   color: var(--color-red);
   display: flex;
   align-items: center;
